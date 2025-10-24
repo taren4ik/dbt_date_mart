@@ -1,0 +1,11 @@
+version: 1
+
+sources:
+  - name: demo_src
+    tables:
+      - name: aircrafts
+        description: Модели самолетов
+      - name: aircraft_code
+      - name: airports
+        description: Аэропорты
+      - name: seats
