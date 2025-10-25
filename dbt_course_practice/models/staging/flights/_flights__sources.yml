@@ -24,4 +24,19 @@ sources:
           - name: aircraft_code
           - name: seat_no
           - name: fare_conditions
+      - name: bookings
+        description: Билеты
+        columns:
+          - name: book_ref
+          - name: book_date
+          - name: total_amount
 
+        freshness:
+          warn_after:
+            count: 60000
+            period:  hour
+          error_after:
+            count: 10000
+            period: day
+          filter: current_timestamp::date - book_date::date < 10000
+        loaded_at_field: book_date::timestamp
