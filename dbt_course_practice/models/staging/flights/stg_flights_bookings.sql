@@ -1,6 +1,6 @@
 {{
       config(
-      materialized = 'materialized_view',
+      materialized = 'table',
       on_configuration_change="apply",
       indexes=[
         {
@@ -14,7 +14,6 @@
 select
     book_ref,
     book_date,
-    total_amount,
-    total_amount * 2 as full_amount
+    total_amount
 from
     {{source('demo_src', 'bookings') }}
